@@ -1,0 +1,16 @@
+{
+    "game": {        
+        "name": "Sample Game",
+        "description": "Sample game description"
+    },
+    "campaign": {
+        "game_id": "sample-game-id",
+        "name": "Sample Campaign",
+        "current_scenario": {
+            "scenario_id": "sample-scenario-id",
+            "name": "Sample Scenario",
+            "status": "not-started"
+        }
+    }
+  }
+  
