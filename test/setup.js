@@ -1,4 +1,5 @@
 require('dotenv').config({ path: '.env.test' }); // Load test environment variables
+const { connectToDatabase, disconnectFromDatabase } = require('../src/db'); // Import the database connection logic
 
 //console.log('MONGO_URI_TEST:', process.env.MONGO_URI);
 
@@ -10,18 +11,14 @@ beforeAll(async () => {
   if (!mongoURI) {
     throw new Error('MONGO_URI not defined in .env.test');
   }
-
    // Connect to MongoDB
-   await mongoose.connect(mongoURI, {}); 
-   
-   const db = mongoose.connection;
-   db.once('open', () => console.log('Connected to MongoDB successfully'));
- 
+   await connectToDatabase();
+   const db = mongoose.connection;   
    // Drop the database
    await db.dropDatabase();  
    await setupTestData();
 });
 
 afterAll(async () => {
-  await mongoose.connection.close();
+  await disconnectFromDatabase(); // Properly close the connection after tests
 });

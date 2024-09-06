@@ -1,7 +1,5 @@
 const request = require("supertest")
-const app = require('../src/index'); // Your Express app
-
-//require("dotenv").config();
+const app = require('../src/app'); // Your Express app
 
 describe ("Get all games test", () => {
     it('should get all games', async () => {
