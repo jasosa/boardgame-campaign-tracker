@@ -11,6 +11,16 @@ describe ("Get all games test", () => {
     });
 });
 
+describe ("Get all campaigns test", () => {
+  it('should get all campaigns', async () => {
+  const response = await request(app)
+    .get('/api/campaigns')
+    .expect(200);
+
+  expect(response.body.length).toBeGreaterThan(0);
+  });
+});
+
 // describe('API Tests', () => {
 //   let server;
 

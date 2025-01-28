@@ -9,8 +9,8 @@ app.use(express.json());
 var cors = require('cors')
 app.use(cors())
 
-const gameRoutes = require('./routes/games');
-const campaignRoutes = require('./routes/campaigns');
+const gameRoutes = require('./routes/Games');
+const campaignRoutes = require('./routes/Campaigns');
 
 // Connect to the database (only for non-test environments)
 if (process.env.NODE_ENV !== 'test') {

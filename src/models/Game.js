@@ -6,18 +6,7 @@ const gameSchema = new mongoose.Schema({
     description: String,
     isCampaignBased: Boolean,
     players: {type: Number, required: true },
-    isTrueSolo: Boolean,
-    scenarios: [
-      {
-        scenario_id: mongoose.Schema.Types.ObjectId,
-        name: String,
-        status: {
-          type: String,
-          enum: ['not-started', 'in-progress', 'completed'],
-          default: 'not-started',
-        }
-      }
-    ],
+    isTrueSolo: Boolean,    
     image: String, //Store image URL for now
   });
   

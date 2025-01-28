@@ -11,14 +11,17 @@ const campaignSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    enum: ['not-started', 'in-progress', 'completed'],
+    default: 'not-started',
+  },
+  image: {
+    type: String,
+  },
   current_scenario: {
     scenario_id: mongoose.Schema.Types.ObjectId,
-    name: String,
-    status: {
-      type: String,
-      enum: ['not-started', 'in-progress', 'completed'],
-      default: 'not-started',
-    }
+    name: String,    
   },
   completed_scenarios: [
     {
